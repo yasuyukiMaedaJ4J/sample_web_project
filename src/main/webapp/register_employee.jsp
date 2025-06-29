@@ -8,6 +8,14 @@
 </head>
 <body>
 <h2>社員登録</h2>
+<%
+  String error = (String) request.getAttribute("error");
+%>
+<p>
+<% if (error != null) { %>
+    <div style="color:red;"><%= error %></div>
+<% } %>
+</p>
 <form action="register" method="post">
   名前: <input type="text" name="name"><br>
   メール: <input type="text" name="email"><br>

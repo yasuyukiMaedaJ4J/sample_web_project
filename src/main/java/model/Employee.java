@@ -16,4 +16,13 @@ public class Employee {
 	public String getEmail() {
 		return email;
 	}
+
+	public boolean isNullCheck() {
+		if (name != null || email != null) {
+			if (name.length() < 1 || email.length() < 1) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

@@ -16,6 +16,16 @@ public class RegisterEmployeeServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		Employee emp = new Employee(name, email);
+
+		if (emp.isNullCheck()) {
+			request.setAttribute("error", "空白があります。入力してください。");
+
+			request.setAttribute("employee", emp);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("register_employee.jsp");
+			dispatcher.forward(request, response);
+
+		}
+
 		request.setAttribute("employee", emp);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("confirm_employee.jsp");
 		dispatcher.forward(request, response);
